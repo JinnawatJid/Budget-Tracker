@@ -1,9 +1,11 @@
 # Budget-Tracker
 
+Mobile-first daily budget tracking web app.
+
 แอปบันทึกรายรับรายจ่ายรายวันแบบ **mobile-first** สำหรับเช็กว่า “วันนี้ใช้เงินตามงบไหม?”
 
 ## Project Documents
-- Context & Task Tracker: `/tmp/workspace/JinnawatJid/Budget-Tracker/docs/CONTEXT.md`
+- Context & Task Tracker: `docs/CONTEXT.md`
 
 ## Product Vision (ฉบับสั้น)
 - ผู้ใช้ตั้งงบรายวัน
