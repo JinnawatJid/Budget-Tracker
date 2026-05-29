@@ -194,3 +194,40 @@ Please generate the following 3 core mobile screens:
 - **List:** Scrollable list. Each transaction is a soft bubble row.
 - **Bottom Navigation:** An ultra-rounded floating bottom nav bar containing simple, soft-glowing icons.
 ```
+
+## Prompt #6: Outlined Playful / Modern Flat Illustration (Alegria-inspired)
+
+**Goal:** Emulate a warm, highly illustrative style characterized by flat colors, distinct outlines, playful proportions, and a "sticker-like" feel, moving away from generic UI shapes toward artwork-driven design.
+
+```text
+Design a mobile-first UI for a daily budget tracking web app. The core layout should be standard for mobile, but the visual execution MUST heavily feature a specific illustrative style: "Modern Flat Illustration with Outlines" (similar to Corporate Memphis, Alegria, or a refined sticker aesthetic).
+
+Visual Style Guidelines:
+- **Heavy Use of Illustration:** The UI should be anchored by prominent, stylized illustrations. Don't just use standard FontAwesome/Material icons; use chunky, custom-looking vector art.
+- **Flat Colors & Outlines:** Illustrations and key UI elements (like cards or prominent buttons) should use flat, solid fill colors bordered by distinct, dark (or colored) outlines. This gives a "sticker" or "comic-book" pop.
+- **Playful Proportions:** Objects and characters (if any) should be stylized, slightly chunky, and abstract rather than realistic.
+- **Warm, Subtle Palette:** Use a soft, warm background color (e.g., pale peach, soft lavender, buttery yellow). Accent colors should be vibrant but slightly desaturated pastel or mid-tones (warm pinks, sky blues, mustard yellows) to maintain a friendly, not harsh, contrast.
+- **Subtle Texture:** Add a very light grain or subtle offset drop shadow to the outlined elements to give them slight depth without losing the flat feel.
+
+Please generate the following 3 core mobile screens:
+
+1. **Home Summary Screen (The Dashboard)**
+- **Header:** Today's Date.
+- **Hero Area:** A large, prominent illustration representing "Budget Health" (e.g., a stylized, outlined piggy bank or a chunky wallet). "Remaining Budget" should be displayed boldly near this illustration.
+- **Secondary Metrics:** "Income" and "Expense" displayed on soft-colored cards with subtle outlines.
+- **Recent Activity:** A list of 3 recent transactions. Each category icon MUST be a custom, outlined, playful illustration (e.g., a chunky coffee cup, a stylized outline of a car).
+- **Primary Action:** A prominent "Add Transaction" button that looks like a pill or rounded rectangle with a distinct outline.
+
+2. **Add Transaction Screen (Bottom Sheet)**
+- **Format:** A slide-up bottom sheet.
+- **Inputs:**
+  - Toggle for "Income / Expense".
+  - A clean number pad.
+  - "Quick Select Categories" arranged as a grid of colorful, heavily stylized, outlined illustration chips.
+- **Action:** A brightly colored "Save" button with a dark outline.
+
+3. **History List Screen**
+- **Header:** "Today's Log".
+- **List:** Scrollable list. Each transaction row features the playfully illustrated category icon, ensuring the list feels visually rich and engaging.
+- **Bottom Navigation:** A simple bottom bar, but the active state could feature an outlined, illustrative icon rather than a standard thin-line icon.
+```
