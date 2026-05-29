@@ -5,7 +5,7 @@ Mobile-first daily budget tracking web app.
 แอปบันทึกรายรับรายจ่ายรายวันแบบ **mobile-first** สำหรับเช็กว่า “วันนี้ใช้เงินตามงบไหม?”
 
 ## Project Documents
-- Context & Task Tracker: `docs/CONTEXT.md`
+- [Context & Task Tracker](docs/CONTEXT.md)
 
 ## Product Vision (ฉบับสั้น)
 - ผู้ใช้ตั้งงบรายวัน
@@ -46,7 +46,7 @@ Mobile-first daily budget tracking web app.
 4. **Zero-confusion copy**: ข้อความสั้น ตรง เช่น “เหลืออีก 220 บาท”
 5. **Empty state ที่ดี**: ชวนให้เพิ่มรายการแรกทันที
 
-> งานออกแบบ UI wireframe/high-fidelity สามารถทำต่อบน Google Stitch ได้ตามที่ต้องการ แล้วค่อย map กลับมาเป็น components ในโค้ด
+> งานออกแบบ UI wireframe/high-fidelity สามารถทำต่อบน Google Stitch (หรือ Figma หากไม่พร้อมใช้งาน) แล้วค่อย map กลับมาเป็น components ในโค้ด
 
 ## Data Model (เริ่มง่าย แต่ต่อยอดได้)
 - `users`
