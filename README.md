@@ -2,6 +2,9 @@
 
 แอปบันทึกรายรับรายจ่ายรายวันแบบ **mobile-first** สำหรับเช็กว่า “วันนี้ใช้เงินตามงบไหม?”
 
+## Project Documents
+- Context & Task Tracker: `/tmp/workspace/JinnawatJid/Budget-Tracker/docs/CONTEXT.md`
+
 ## Product Vision (ฉบับสั้น)
 - ผู้ใช้ตั้งงบรายวัน
 - บันทึกรายรับ/รายจ่ายระหว่างวันได้เร็วที่สุด
