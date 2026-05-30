@@ -48,8 +48,8 @@ This project also uses a **public feedback loop** (TikTok comments) to prioritiz
 | ID | Task | Status | Owner | Notes |
 |---|---|---|---|---|
 | T1 | Finalize MVP scope and acceptance criteria | ✅ Done | Founder + AI | Captured in README and this context doc |
-| T2 | Define screen flow (Home, Add, History) | ⏳ Next | Founder | Create mobile wireframes in Google Stitch (or Figma if unavailable) |
-| T3 | Scaffold project (Next.js + TypeScript + Tailwind) | ⏳ Next | AI | Initialize repo structure |
+| T2 | Define screen flow (Home, Add, History) | ✅ Done | Founder | Create mobile wireframes in Google Stitch (or Figma if unavailable) |
+| T3 | Scaffold project (Next.js + TypeScript + Tailwind) | ⏳ In Progress | AI | Initialize repo structure |
 | T4 | Set up DB schema (daily_budgets, transactions) | ⏸ Planned | AI | Use Prisma migrations |
 | T5 | Implement MVP core features | ⏸ Planned | AI | Build in small milestones |
 | T6 | Instrument analytics + feedback loop process | ⏸ Planned | Founder + AI | Connect comment ideas to backlog |
