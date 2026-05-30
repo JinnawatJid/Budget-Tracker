@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4f4536",
+                        "surface-container-high": "#f1e7db",
+                        "outline-variant": "#d3c5b0",
+                        "on-tertiary-container": "#6b3d5b",
+                        "tertiary-container": "#e7abcf",
+                        "secondary": "#2d6482",
+                        "secondary-container": "#a7dbfe",
+                        "inverse-on-surface": "#faefe3",
+                        "surface-dim": "#e2d8cd",
+                        "secondary-fixed": "#c6e7ff",
+                        "on-secondary-fixed": "#001e2d",
+                        "surface-container-highest": "#ebe1d5",
+                        "surface": "#fff8f3",
+                        "primary-fixed-dim": "#f4be55",
+                        "primary-fixed": "#ffdea7",
+                        "on-error": "#ffffff",
+                        "primary-container": "#e9b44c",
+                        "tertiary-fixed": "#ffd8ed",
+                        "surface-container-low": "#fdf2e6",
+                        "outline": "#817564",
+                        "on-primary-fixed": "#271900",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1f1b14",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#99cdf0",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#5e4200",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#644600",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#ebe1d5",
+                        "surface-bright": "#fff8f3",
+                        "surface-tint": "#7c5800",
+                        "on-secondary-fixed-variant": "#0a4c69",
+                        "inverse-surface": "#353028",
+                        "on-secondary-container": "#29617f",
+                        "primary": "#7c5800",
+                        "on-background": "#1f1b14",
+                        "surface-container": "#f7ece0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#f2b5d9",
+                        "inverse-primary": "#f4be55",
+                        "on-tertiary-fixed": "#330c29",
+                        "tertiary": "#804f6e",
+                        "on-tertiary-fixed-variant": "#653856",
+                        "background": "#fff8f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Quicksand"],
+                        "body-md": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "label-sm": ["Quicksand"],
+                        "display-lg": ["Quicksand"],
+                        "label-md": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .sticker-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(31, 27, 20, 1);
+        }
+        .grainy-overlay {
+            position: relative;
+        }
+        .grainy-overlay::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #d3c5b0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md grainy-overlay min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b-2 border-on-surface flex justify-between items-center px-margin-mobile py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-on-surface overflow-hidden bg-primary-container">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWpWM1C4HG9qJBQpqumozCbtQfRK-5A7aH2_Kx0MUk9p-_b66_ISWEWLj--LHxGUGC8VHD18auFcitCofSxTYtmPzNvwwtqku6z3ymmjUYCGus1Be9SohckOwbVe0lv0n_Cm_Z2Gen8YijuYg2wfuNlw_95AVvlkUFDIOeqPLtQ5BcSD5nhdl-tKgUOKAzxCAa61MvWB4TAlLbRjrIJXxRVFv-PDg2KKMb4eowmnplEZ6k5FhbSh5zvvbOnPjAuc5YF14fGx9wfI87"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">PennyWise</span>
+</div>
+<button class="material-symbols-outlined text-primary p-2 transition-transform active:scale-95 hover:bg-primary-container/20 rounded-full">
+            settings
+        </button>
+</header>
+<main class="flex-1 overflow-y-auto custom-scroll pb-24">
+<!-- Title Section -->
+<section class="px-margin-mobile pt-8 pb-4">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Today's Log</h1>
+<p class="font-body-md text-on-surface-variant">You've made 6 transactions today.</p>
+</section>
+<!-- Transaction List -->
+<div class="px-margin-mobile space-y-4">
+<!-- Transaction Item 1 -->
+<div class="bg-surface-container border-2 border-on-surface sticker-shadow rounded-xl p-4 flex items-center gap-4 transition-all duration-150 active:translate-y-1 active:shadow-none cursor-pointer">
+<div class="w-14 h-14 bg-secondary-container border-2 border-on-surface rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+<img alt="Coffee icon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Morning Brew</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Coffee &amp; Bakery</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-body-lg text-error">-$4.50</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">08:15 AM</p>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="bg-surface-container-low border-2 border-on-surface sticker-shadow rounded-xl p-4 flex items-center gap-4 transition-all duration-150 active:translate-y-1 active:shadow-none cursor-pointer">
+<div class="w-14 h-14 bg-primary-container border-2 border-on-surface rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+<img alt="Grocery icon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX" style="object-position: -50px 0;"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Organic Market</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Groceries</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-body-lg text-error">-$42.10</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">10:30 AM</p>
+</div>
+</div>
+<!-- Transaction Item 3 (Positive) -->
+<div class="bg-tertiary-container border-2 border-on-surface sticker-shadow rounded-xl p-4 flex items-center gap-4 transition-all duration-150 active:translate-y-1 active:shadow-none cursor-pointer">
+<div class="w-14 h-14 bg-white border-2 border-on-surface rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface" style="font-variation-settings: 'FILL' 1; font-size: 32px;">payments</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Weekly Dividend</h3>
+<p class="font-label-md text-label-md text-on-tertiary-container">Investments</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-body-lg text-on-surface">+$12.50</p>
+<p class="font-label-sm text-label-sm text-on-tertiary-container">12:00 PM</p>
+</div>
+</div>
+<!-- Transaction Item 4 -->
+<div class="bg-surface-container border-2 border-on-surface sticker-shadow rounded-xl p-4 flex items-center gap-4 transition-all duration-150 active:translate-y-1 active:shadow-none cursor-pointer">
+<div class="w-14 h-14 bg-secondary-fixed-dim border-2 border-on-surface rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+<img alt="Car icon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX" style="object-position: -100px 0;"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Shell Gas</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Transport</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-body-lg text-error">-$55.00</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">02:45 PM</p>
+</div>
+</div>
+<!-- Transaction Item 5 -->
+<div class="bg-surface-container-high border-2 border-on-surface sticker-shadow rounded-xl p-4 flex items-center gap-4 transition-all duration-150 active:translate-y-1 active:shadow-none cursor-pointer">
+<div class="w-14 h-14 bg-tertiary-fixed-dim border-2 border-on-surface rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+<img alt="Ticket icon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX" style="object-position: -150px 0;"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Cinema Night</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Entertainment</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-body-lg text-error">-$18.00</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">07:20 PM</p>
+</div>
+</div>
+<!-- Transaction Item 6 -->
+<div class="bg-surface-container border-2 border-on-surface sticker-shadow rounded-xl p-4 flex items-center gap-4 transition-all duration-150 active:translate-y-1 active:shadow-none cursor-pointer">
+<div class="w-14 h-14 bg-secondary-container border-2 border-on-surface rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+<img alt="Coffee icon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Tea House</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Dining Out</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-body-lg text-error">-$6.20</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">08:50 PM</p>
+</div>
+</div>
+</div>
+<!-- Yesterday's Snapshot (Extra Context) -->
+<section class="px-margin-mobile mt-12 mb-8">
+<div class="bg-primary-fixed border-2 border-on-surface sticker-shadow rounded-xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-primary-fixed mb-2">Yesterday's Total</h2>
+<p class="font-display-lg text-display-lg text-on-primary-fixed-variant">$142.50</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface border-t-2 border-on-surface flex justify-around items-center h-20 px-4 pb-safe">
+<!-- Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high p-2 rounded-lg transition-all duration-150 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<!-- Budgets - Active State -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 border-2 border-on-surface transition-all duration-150 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-md text-label-md font-bold">Budgets</span>
+</a>
+<!-- Savings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high p-2 rounded-lg transition-all duration-150 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="font-label-md text-label-md">Savings</span>
+</a>
+<!-- Account -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high p-2 rounded-lg transition-all duration-150 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Account</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.sticker-shadow').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'translate(2px, 2px)';
+                card.style.boxShadow = '2px 2px 0px 0px rgba(31, 27, 20, 1)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'translate(0, 0)';
+                card.style.boxShadow = '4px 4px 0px 0px rgba(31, 27, 20, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translate(0, 0)';
+                card.style.boxShadow = '4px 4px 0px 0px rgba(31, 27, 20, 1)';
+            });
+        });
+    </script>
+</body></html>
