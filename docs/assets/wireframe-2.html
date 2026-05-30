@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            position: relative;
+        }
+        .grain-overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.03;
+            background-image: url("https://www.transparenttextures.com/patterns/p6-grain.png");
+        }
+        .sticker-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(31, 27, 20, 1);
+        }
+        .sticker-shadow-active:active {
+            box-shadow: 0px 0px 0px 0px rgba(31, 27, 20, 1);
+            transform: translate(4px, 4px);
+        }
+        .bottom-sheet-transition {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4f4536",
+                        "surface-container-high": "#f1e7db",
+                        "outline-variant": "#d3c5b0",
+                        "on-tertiary-container": "#6b3d5b",
+                        "tertiary-container": "#e7abcf",
+                        "secondary": "#2d6482",
+                        "secondary-container": "#a7dbfe",
+                        "inverse-on-surface": "#faefe3",
+                        "surface-dim": "#e2d8cd",
+                        "secondary-fixed": "#c6e7ff",
+                        "on-secondary-fixed": "#001e2d",
+                        "surface-container-highest": "#ebe1d5",
+                        "surface": "#fff8f3",
+                        "primary-fixed-dim": "#f4be55",
+                        "primary-fixed": "#ffdea7",
+                        "on-error": "#ffffff",
+                        "primary-container": "#e9b44c",
+                        "tertiary-fixed": "#ffd8ed",
+                        "surface-container-low": "#fdf2e6",
+                        "outline": "#817564",
+                        "on-primary-fixed": "#271900",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1f1b14",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#99cdf0",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#5e4200",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#644600",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#ebe1d5",
+                        "surface-bright": "#fff8f3",
+                        "surface-tint": "#7c5800",
+                        "on-secondary-fixed-variant": "#0a4c69",
+                        "inverse-surface": "#353028",
+                        "on-secondary-container": "#29617f",
+                        "primary": "#7c5800",
+                        "on-background": "#1f1b14",
+                        "surface-container": "#f7ece0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#f2b5d9",
+                        "inverse-primary": "#f4be55",
+                        "on-tertiary-fixed": "#330c29",
+                        "tertiary": "#804f6e",
+                        "on-tertiary-fixed-variant": "#653856",
+                        "background": "#fff8f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Quicksand"],
+                        "body-md": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "label-sm": ["Quicksand"],
+                        "display-lg": ["Quicksand"],
+                        "label-md": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden">
+<!-- Main Content Underlay (Mock Dashboard) -->
+<header class="w-full top-0 sticky border-b-2 border-on-surface bg-surface dark:bg-surface-dim z-30 transition-transform active:scale-95 flex justify-between items-center px-margin-mobile py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-primary-fixed overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">person</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">PennyWise</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary">settings</span>
+</button>
+</header>
+<main class="p-6 space-y-6 pb-32">
+<!-- Dashboard Summary Card -->
+<div class="bg-secondary-container border-2 border-on-surface p-6 rounded-lg sticker-shadow">
+<p class="text-label-md font-label-md text-on-secondary-container">Current Balance</p>
+<h2 class="text-display-lg font-display-lg text-on-secondary-container mt-1">$2,450.00</h2>
+<div class="mt-4 flex gap-4">
+<div class="flex-1 bg-surface-container-lowest border-2 border-on-surface p-3 rounded-lg">
+<p class="text-label-sm font-label-sm opacity-70">Income</p>
+<p class="text-headline-md font-headline-md text-primary">$4,200</p>
+</div>
+<div class="flex-1 bg-surface-container-lowest border-2 border-on-surface p-3 rounded-lg">
+<p class="text-label-sm font-label-sm opacity-70">Expenses</p>
+<p class="text-headline-md font-headline-md text-tertiary">$1,750</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md">Recent Activity</h3>
+<span class="text-primary font-bold text-label-md cursor-pointer hover:underline">View All</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface border-2 border-on-surface p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-container border-2 border-on-surface rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">coffee</span>
+</div>
+<div>
+<p class="font-bold">Morning Latte</p>
+<p class="text-label-sm text-on-surface-variant">Today, 8:45 AM</p>
+</div>
+</div>
+<p class="font-bold text-tertiary">-$4.50</p>
+</div>
+<div class="bg-surface border-2 border-on-surface p-4 rounded-lg flex items-center justify-between opacity-60">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-fixed border-2 border-on-surface rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div>
+<p class="font-bold">Gas Station</p>
+<p class="text-label-sm text-on-surface-variant">Yesterday</p>
+</div>
+</div>
+<p class="font-bold text-tertiary">-$45.00</p>
+</div>
+</div>
+</main>
+<!-- Overlay / Scrim -->
+<div class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-40 transition-opacity duration-300 opacity-100" id="scrim"></div>
+<!-- Bottom Sheet -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface border-t-4 border-on-surface rounded-t-xl grain-overlay bottom-sheet-transition translate-y-0 max-h-[90vh] overflow-y-auto" id="bottomSheet">
+<div class="w-16 h-1.5 bg-outline-variant rounded-full mx-auto my-4"></div>
+<div class="px-6 pb-12 space-y-8">
+<!-- Header & Toggle -->
+<div class="flex flex-col items-center gap-6">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">Add Transaction</h2>
+<div class="flex bg-surface-container border-2 border-on-surface p-1 rounded-full w-full max-w-xs">
+<button class="flex-1 py-2 px-4 rounded-full font-bold text-label-md transition-all bg-primary-container text-on-primary-container border-2 border-on-surface sticker-shadow" id="expenseTab">
+                        Expense
+                    </button>
+<button class="flex-1 py-2 px-4 rounded-full font-bold text-label-md transition-all text-on-surface-variant" id="incomeTab">
+                        Income
+                    </button>
+</div>
+</div>
+<!-- Amount Input -->
+<div class="bg-white border-4 border-on-surface p-6 rounded-lg sticker-shadow flex flex-col items-center">
+<label class="text-label-md font-bold mb-2 text-primary">ENTER AMOUNT</label>
+<div class="flex items-center gap-2">
+<span class="text-display-lg font-display-lg text-on-surface-variant">$</span>
+<span class="text-display-lg font-display-lg text-on-surface" id="amountDisplay">0</span>
+<span class="w-1 h-12 bg-primary animate-pulse"></span>
+</div>
+</div>
+<!-- Category Grid -->
+<div class="space-y-4">
+<h3 class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Quick Select Categories</h3>
+<div class="grid grid-cols-4 gap-4">
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 bg-white border-2 border-on-surface rounded-xl overflow-hidden sticker-shadow-active transition-transform group-hover:-translate-y-1">
+<img alt="Coffee icon" class="w-full h-full object-cover p-1" data-alt="A chunky, stylized coffee cup icon in a modern flat illustration style with heavy dark outlines and a pastel orange background. The icon is designed as a playful sticker with thick borders, fitting a vibrant, friendly fintech interface aesthetic. Soft, even lighting creates a clean, paper-like texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX"/>
+</div>
+<span class="text-label-sm font-bold">Food</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 bg-white border-2 border-on-surface rounded-xl overflow-hidden sticker-shadow-active transition-transform group-hover:-translate-y-1">
+<img alt="Car icon" class="w-full h-full object-cover p-1" data-alt="A stylized chunky blue car icon in a flat modern illustration style with thick charcoal outlines. The design uses a sticker aesthetic with soft pastel hues, aimed at a youthful and optimistic budget tracking app. The illustration is abstract and playful, set against a bright, professional background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX" style="object-position: -64px 0"/>
+</div>
+<span class="text-label-sm font-bold">Transport</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 bg-white border-2 border-on-surface rounded-xl overflow-hidden sticker-shadow-active transition-transform group-hover:-translate-y-1">
+<img alt="Grocery icon" class="w-full h-full object-cover p-1" data-alt="A chunky grocery bag icon with simple fruit shapes inside, rendered in a modern flat illustration style. The art features thick, deliberate dark outlines and a soft sage green color palette. The aesthetic is clean and tactile, resembling a high-quality physical sticker for a personal finance application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX" style="object-position: -128px 0"/>
+</div>
+<span class="text-label-sm font-bold">Shopping</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 bg-white border-2 border-on-surface rounded-xl overflow-hidden sticker-shadow-active transition-transform group-hover:-translate-y-1">
+<img alt="Ticket icon" class="w-full h-full object-cover p-1" data-alt="A playful pink movie ticket icon in a modern chunky flat illustration style. It has heavy, dark outlines and a simple, abstract form that looks like a sticker. The colors are soft pastels, evoking a friendly and non-intimidating user experience for managing entertainment expenses in a modern UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUibNLepCJdkwJIqzV0fEKWGHQnYp9vnAM7LQa-6GtyPafY_nINfebw3lED1qdbak-L3v89zOWwnjLjPXYzWsvqjY9K64yVTcTsXy-eijY6RUyZeu3dLHUHGf4Kvwfk1qQpQWYUOD5FHigNVR7OTevnHgk0bAMKsk32zB-m9yo_jVPzIzugKSTFHkCWEeRbYok8LpIFHuZvOoJOKg9NJOGsxywWhRMz_YqzGXpkkfwTeXmB-iU1oL05xjHCYfx6SzaVnIyLF-8gEX" style="object-position: -192px 0"/>
+</div>
+<span class="text-label-sm font-bold">Fun</span>
+</div>
+</div>
+</div>
+<!-- Number Pad -->
+<div class="grid grid-cols-3 gap-4 max-w-sm mx-auto">
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">1</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">2</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">3</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">4</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">5</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">6</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">7</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">8</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">9</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">.</button>
+<button class="num-key h-16 bg-surface-container-lowest border-2 border-on-surface rounded-lg font-headline-md sticker-shadow-active">0</button>
+<button class="h-16 bg-surface-container-high border-2 border-on-surface rounded-lg flex items-center justify-center sticker-shadow-active" id="backspace">
+<span class="material-symbols-outlined font-bold">backspace</span>
+</button>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="w-full py-5 bg-primary-container text-on-primary-container border-4 border-on-surface rounded-full font-headline-md sticker-shadow sticker-shadow-active uppercase tracking-widest transition-transform" id="saveBtn">
+                    Save Transaction
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 w-full z-[60] rounded-t-xl border-t-2 border-on-surface bg-surface dark:bg-inverse-surface flex justify-around items-center h-20 px-4 pb-safe">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-all duration-150 active:translate-y-1">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 border-2 border-on-surface transition-all duration-150 active:translate-y-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="font-label-md text-label-md font-bold">Add</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-all duration-150 active:translate-y-1">
+<span class="material-symbols-outlined">savings</span>
+<span class="font-label-md text-label-md">Savings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-all duration-150 active:translate-y-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Account</span>
+</button>
+</nav>
+<script>
+        // Number Pad Logic
+        const amountDisplay = document.getElementById('amountDisplay');
+        const numKeys = document.querySelectorAll('.num-key');
+        const backspace = document.getElementById('backspace');
+        let currentAmount = '0';
+
+        numKeys.forEach(key => {
+            key.addEventListener('click', () => {
+                const val = key.innerText;
+                if (currentAmount === '0' && val !== '.') {
+                    currentAmount = val;
+                } else {
+                    if (val === '.' && currentAmount.includes('.')) return;
+                    currentAmount += val;
+                }
+                updateDisplay();
+            });
+        });
+
+        backspace.addEventListener('click', () => {
+            currentAmount = currentAmount.slice(0, -1);
+            if (currentAmount === '' || currentAmount === '-') currentAmount = '0';
+            updateDisplay();
+        });
+
+        function updateDisplay() {
+            amountDisplay.innerText = currentAmount;
+        }
+
+        // Toggle Logic
+        const expenseTab = document.getElementById('expenseTab');
+        const incomeTab = document.getElementById('incomeTab');
+
+        expenseTab.addEventListener('click', () => {
+            expenseTab.className = "flex-1 py-2 px-4 rounded-full font-bold text-label-md transition-all bg-primary-container text-on-primary-container border-2 border-on-surface sticker-shadow";
+            incomeTab.className = "flex-1 py-2 px-4 rounded-full font-bold text-label-md transition-all text-on-surface-variant";
+        });
+
+        incomeTab.addEventListener('click', () => {
+            incomeTab.className = "flex-1 py-2 px-4 rounded-full font-bold text-label-md transition-all bg-primary-container text-on-primary-container border-2 border-on-surface sticker-shadow";
+            expenseTab.className = "flex-1 py-2 px-4 rounded-full font-bold text-label-md transition-all text-on-surface-variant";
+        });
+
+        // Bottom Sheet Toggle (Micro-interaction)
+        const scrim = document.getElementById('scrim');
+        const bottomSheet = document.getElementById('bottomSheet');
+        const saveBtn = document.getElementById('saveBtn');
+
+        saveBtn.addEventListener('click', () => {
+            bottomSheet.classList.add('translate-y-full');
+            scrim.classList.remove('opacity-100');
+            scrim.classList.add('opacity-0');
+            setTimeout(() => {
+                scrim.classList.add('hidden');
+            }, 300);
+        });
+
+        scrim.addEventListener('click', () => {
+            bottomSheet.classList.add('translate-y-full');
+            scrim.classList.remove('opacity-100');
+            scrim.classList.add('opacity-0');
+            setTimeout(() => {
+                scrim.classList.add('hidden');
+            }, 300);
+        });
+    </script>
+</body></html>
